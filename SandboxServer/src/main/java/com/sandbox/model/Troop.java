@@ -6,8 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "TROOP")
 public class Troop {
 	@Id
 	@SequenceGenerator(name = "TROOP_ID", sequenceName = "TROOP_ID")
@@ -15,13 +17,13 @@ public class Troop {
 	@Column(name = "ID")
 	private long id; 
 	
-	@Column
+	@Column(name = "TROOP_NAME")
 	private String troopName;
 	
-	@Column
+	@Column(name = "SALUTE")
 	private String saluteMsg;
 	
-	@Column
+	@Column(name = "STRENGTH")
 	private int strength;
 		
 	

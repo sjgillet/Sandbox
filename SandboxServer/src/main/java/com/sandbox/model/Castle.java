@@ -1,5 +1,6 @@
 package com.sandbox.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -10,9 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 
 @Entity
+@Table(name = "CASTLE")
 public class Castle {
 	@Id
 	@SequenceGenerator(name = "CASTLE_ID", sequenceName = "CASTLE_ID")
@@ -20,13 +23,13 @@ public class Castle {
 	@Column(name = "ID")
 	private long id; 
 	
-	@Column
+	@Column(name = "CASTLE_NAME")
 	private String name; 
 	
-	@Column
+	@Column(name = "FACTION_NAME")
 	private String factionName; 
 	
-	@Column
+	@Column(name = "WALL_STRENGTH")
 	private int wallStrength;
 	
 	@OneToMany
@@ -47,6 +50,14 @@ public class Castle {
 		this.factionName = factionName;
 		this.wallStrength = wallStrength;
 		this.garrison = garrison;
+	}
+	
+	public Castle(String name, String factionName, int wallStrength) {
+		super();
+		this.name = name;
+		this.factionName = factionName;
+		this.wallStrength = wallStrength;
+		this.garrison = new ArrayList<Troop>(); 
 	}
 	public Castle() {
 		super();
@@ -83,6 +94,17 @@ public class Castle {
 	public void setGarrison(List<Troop> garrison) {
 		this.garrison = garrison;
 	}
+	
+	public void addTroop(Troop t ) {
+		this.garrison.add(t); 
+	}
+	public void removeTroop(Troop t) {
+		this.garrison.remove(t);
+	}
+	public void removeTroop(int index) {
+		this.garrison.remove(index);
+	}
+	
 	@Override
 	public String toString() {
 		return "Castle [id=" + id + ", name=" + name + ", factionName=" + factionName + ", wallStrength=" + wallStrength
