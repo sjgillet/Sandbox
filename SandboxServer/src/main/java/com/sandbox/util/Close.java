@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import org.apache.poi.ss.usermodel.Workbook;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -48,6 +49,15 @@ public class Close {
 		catch(IOException e)  {
 			e.printStackTrace();
 		}
+	}
+	public static void close(Workbook workbook) {
+		try {
+			if(workbook != null)
+				workbook.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} 
+
 	}
 
 }
