@@ -1,12 +1,29 @@
 package com.sandbox.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+
+@Entity
 public class Troop {
+	@Id
+	@SequenceGenerator(name = "TROOP_ID", sequenceName = "TROOP_ID")
+	@GeneratedValue(generator = "TROOP_ID", strategy = GenerationType.SEQUENCE)
+	@Column(name = "ID")
 	private long id; 
-	private String troopName; 
-	private String saluteMsg; 
+	
+	@Column
+	private String troopName;
+	
+	@Column
+	private String saluteMsg;
+	
+	@Column
 	private int strength;
-	
-	
+		
 	
 
 	public Troop() {

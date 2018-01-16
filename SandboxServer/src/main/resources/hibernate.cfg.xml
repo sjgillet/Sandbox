@@ -12,7 +12,8 @@
 		<property name="hibernate.connection.username">sandboxapp</property>
 		<property name="hibernate.connection.password">passwordsand</property>
 
-
+		<mapping class = "com.sandbox.model.Castle"></mapping>
+		<mapping class = "com.sandbox.model.Troop"></mapping>
 
 	</session-factory>
 </hibernate-configuration>

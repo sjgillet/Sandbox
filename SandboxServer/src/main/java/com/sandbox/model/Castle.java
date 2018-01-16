@@ -2,11 +2,35 @@ package com.sandbox.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+
+
+@Entity
 public class Castle {
+	@Id
+	@SequenceGenerator(name = "CASTLE_ID", sequenceName = "CASTLE_ID")
+	@GeneratedValue(generator = "CASTLE_ID", strategy = GenerationType.SEQUENCE)
+	@Column(name = "ID")
 	private long id; 
+	
+	@Column
 	private String name; 
+	
+	@Column
 	private String factionName; 
-	private int wallStrength; 
+	
+	@Column
+	private int wallStrength;
+	
+	@OneToMany
+	@JoinTable(name = "GARRISON")
 	private List<Troop> garrison;
 	
 	public Castle(String name, String factionName, int wallStrength, List<Troop> garrison) {
