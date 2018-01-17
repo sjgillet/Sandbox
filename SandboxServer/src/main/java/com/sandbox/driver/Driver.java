@@ -9,10 +9,10 @@ import com.sandbox.model.Castle;
 import com.sandbox.model.Troop;
 import com.sandbox.util.DataImporter;
 
+
 public class Driver {
 
 	public static void main(String[] args) {
-		System.out.println("Hello World");
 		CastleDao cd = CastleDao.getCastleDao(); 
 		TroopDao td = TroopDao.getTroopDao();
 		
@@ -29,10 +29,9 @@ public class Driver {
 
 		Long l = cd.insertCastle(c);
 		System.out.println("Inserted castle at id " + l);
-		l = cd.insertCastle(c);
-		System.out.println("Inserted castle at id " + l);
 		
-
+		DataImporter.importFromWorkbook();
+		
 		
 	}
 	
